@@ -23,7 +23,7 @@ module ActionView
         # Check if we can find the dimensions of the uploaded image.
         # If no image or dimensions available use default.
         if model.retina_dimensions.kind_of?(Hash) && model.retina_dimensions[mounted_to.to_sym]
-          dimensions = model.retina_dimensions[mounted_to.to_sym][version.to_sym]
+          dimensions = model.retina_dimensions[mounted_to.to_sym][version.to_sym] || {}
         else
           if default.kind_of?(Array)
             default = { :width => default[0], :height => default[1] }
